@@ -30,7 +30,6 @@ services:
     reservations:
       cpus: '0.5'
       memory: 512M
-  restart: always
   env_file:
    - ./env_vars/.env_db_mysql
    - ./env_vars/.env_srv
@@ -252,7 +251,6 @@ services:
     reservations:
       cpus: '0.5'
       memory: 256M
-  restart: always
   env_file:
    - ./env_vars/.env_db_mysql
    - ./env_vars/.env_web
@@ -312,7 +310,6 @@ services:
       cpus: '0.1'
       memory: 64M
    mode: global
-  restart: always
   env_file:
    - ./env_vars/.env_agent
   privileged: true
@@ -376,7 +373,6 @@ services:
     reservations:
       cpus: '0.25'
       memory: 128M
-  restart: always
   networks:
    zbx_net_frontend:
     aliases:
@@ -408,7 +404,6 @@ services:
     reservations:
       cpus: '0.25'
       memory: 256M
-  restart: always
   env_file:
    - ./env_vars/.env_web_service
   networks:
@@ -438,7 +433,6 @@ services:
   volumes:
    - ./zbx_env/var/lib/mysql:/var/lib/mysql:rw
 #   - dbsocket:/var/run/mysqld/
-  restart: always
   env_file:
    - ./env_vars/.env_db_mysql
   secrets:
@@ -460,7 +454,6 @@ services:
   image: busybox
   volumes:
    - ./zbx_env/var/lib/mysql:/var/lib/mysql:rw
-  restart: always
 
 # elasticsearch:
 #  image: elasticsearch
